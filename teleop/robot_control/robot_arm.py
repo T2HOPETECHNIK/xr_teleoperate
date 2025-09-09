@@ -625,8 +625,9 @@ class G1_23_JointIndex(IntEnum):
     kNotUsedJoint5 = 34
 
 class H1_2_ArmController:
-    def __init__(self, simulation_mode = False):
+    def __init__(self, motion_mode = False, simulation_mode = False):
         self.simulation_mode = simulation_mode
+        self.motion_mode = motion_mode
         
         logger_mp.info("Initialize H1_2_ArmController...")
         self.q_target = np.zeros(14)
