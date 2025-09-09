@@ -195,12 +195,12 @@ if __name__ == '__main__':
         sport_client = LocoClient()
         sport_client.SetTimeout(0.0001)
         sport_client.Init()
-    
+        
     # record + headless mode
     if args.record and args.headless:
-        recorder = EpisodeWriter(task_dir = args.task_dir + args.task_name, task_goal = args.task_goal, frequency = args.frequency, rerun_log = False)
+        recorder = EpisodeWriter(task_dir = args.task_dir, frequency = args.frequency, rerun_log = False)
     elif args.record and not args.headless:
-        recorder = EpisodeWriter(task_dir = args.task_dir + args.task_name, task_goal = args.task_goal, frequency = args.frequency, rerun_log = True)
+        recorder = EpisodeWriter(task_dir = args.task_dir, frequency = args.frequency, rerun_log = True)
         
     try:
         logger_mp.info("Please enter the start signal (enter 'r' to start the subsequent program)")
