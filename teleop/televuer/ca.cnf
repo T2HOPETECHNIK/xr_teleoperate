@@ -1,0 +1,24 @@
+[ req ]
+default_bits        = 2048
+default_md          = sha256
+prompt              = no
+distinguished_name  = dn
+x509_extensions     = v3_all
+
+[ dn ]
+C  = SG
+ST = State
+L  = City
+O  = MyOrg
+CN = 192.168.123.164
+
+[ v3_all ]
+# Mark it as a CA so the Quest will accept it as a "CA certificate"
+basicConstraints = critical, CA:true, pathlen:0
+keyUsage = critical, keyCertSign, cRLSign, digitalSignature, keyEncipherment
+extendedKeyUsage = serverAuth
+subjectAltName = @alt_names
+
+[ alt_names ]
+IP.1 = 192.168.123.164
+# DNS.1 = localhost
